@@ -1,4 +1,4 @@
-# setup working directory
+# setup working directory, test
 FROM maven AS build
 RUN mkdir /app
 WORKDIR /app
