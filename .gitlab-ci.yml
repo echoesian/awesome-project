@@ -1,6 +1,8 @@
-before_script:
-  - docker info
+stages:
+  - build
 
-build_image:
+build-docker:
+  stage: build
   script:
-    - docker build -t java-webapp-example .
+     - whoami
+     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" "$CI_REGISTRY"
