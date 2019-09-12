@@ -8,4 +8,4 @@ build-docker:
   script:
      - whoami
      - docker -v
-     - docker login --username=mikesoon@yahoo.com registry-intl.ap-southeast-3.aliyuncs.com --password=Mikesoon!@#123
+     - docker login --username=mikesoon@yahoo.com registry-intl.ap-southeast-3.aliyuncs.com --password='Mikesoon!@#123'
