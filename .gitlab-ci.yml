@@ -9,3 +9,6 @@ build-docker:
      - whoami
      - docker -v
      - docker login --username=mikesoon@yahoo.com registry-intl.ap-southeast-3.aliyuncs.com --password='Mikesoon!@#123'
+     - docker build -t awesome-project .
+     - docker tag awesome-project registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
+     - docker push registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
