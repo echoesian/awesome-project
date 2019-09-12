@@ -8,4 +8,4 @@ build-docker:
   script:
      - whoami
      - docker -v
-     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+     - docker login --username=mikesoon@yahoo.com registry-intl.ap-southeast-3.aliyuncs.com
