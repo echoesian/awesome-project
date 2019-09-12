@@ -8,4 +8,4 @@ build-docker:
   script:
      - whoami
      - docker -v
-     - docker build -t awesome-project .
+     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
