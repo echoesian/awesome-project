@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Welcome to v1.1</h2>
+<h2>Welcome to v1</h2>
 </body>
 </html>
