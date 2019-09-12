@@ -1,9 +1,9 @@
-image: docker:latest
+image: docker:stable
 
-stages:
-  - build
+before_script:
+  - docker info
 
-build-docker:
+build:
   stage: build
   script:
      - docker info
