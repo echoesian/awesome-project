@@ -21,7 +21,7 @@ build:
      - docker push registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
      
 production:
-  image: registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
+  image: roffe/kubectl:latest
   stage: deploy
   script:
     - apk add --update --no-cache openssh sshpass
