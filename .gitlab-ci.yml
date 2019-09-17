@@ -19,8 +19,6 @@ build:
 deploy:
   image: registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
   stage: deploy
-  tags:
-    - k8s-runner
   script:
     - mkdir -p /etc/deploy
     - echo $kube_config |base64 -d > $KUBECONFIG
