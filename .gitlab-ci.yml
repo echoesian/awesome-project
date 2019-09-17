@@ -4,8 +4,8 @@ variables:
   DOCKER_REGISTRY_IMAGE_URL: "registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome"
   DOCKER_REGISTRY_USERNAME: "mikesoon@yahoo.com"
   DOCKER_REGISTRY_PASSWORD: "Mikesoon!@#123"
-  K8S_MASTER_PUBLIC_IP: "161.117.97.241"
-  K8S_PASSWORD: "yourPassword"
+  K8S_MASTER_PUBLIC_IP: "47.254.192.44"
+  K8S_PASSWORD: "Mikesoon!@#123"
   MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
   
 stages:
