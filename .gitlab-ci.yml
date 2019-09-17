@@ -20,7 +20,6 @@ deploy:
   image: registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
   stage: deploy
   script:
-    - mkdir -p /etc/deploy
     - echo $kube_config |base64 -d > $KUBECONFIG
     - sed -i "s/IMAGE_TAG/$CI_PIPELINE_ID/g" deployment.yaml
     - cat deployment.yaml
