@@ -1,8 +1,5 @@
 image: docker:stable
 
-before_script:
-  - docker info
-
 stages:
   - build
   - deploy
