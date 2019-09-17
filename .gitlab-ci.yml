@@ -1,5 +1,13 @@
 image: docker:stable
 
+variables:
+  DOCKER_REGISTRY_IMAGE_URL: "registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome"
+  DOCKER_REGISTRY_USERNAME: "mikesoon@yahoo.com"
+  DOCKER_REGISTRY_PASSWORD: "Mikesoon!@#123"
+  K8S_MASTER_PUBLIC_IP: "161.117.97.241"
+  K8S_PASSWORD: "yourPassword"
+  MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
+  
 stages:
   - build
   - deploy
@@ -12,11 +20,13 @@ build:
      - docker tag awesome-project registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
      - docker push registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
      
-deploy:
+production:
   image: registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
   stage: deploy
   script:
-    - echo $kube_config |base64 -d > $KUBECONFIG
-    - sed -i "s/IMAGE_TAG/$CI_PIPELINE_ID/g" deployment.yaml
-    - cat deployment.yaml
-    - kubectl apply -f deployment.yaml
+    - apk add --update --no-cache openssh sshpass
+    - mkdir -p $HOME/.kube
+    - sshpass -p "$K8S_PASSWORD" scp -o StrictHostKeyChecking=no root@$K8S_MASTER_PUBLIC_IP:/etc/kubernetes/kube.conf $HOME/.kube/config
+    - cat deployment.yml | sed "s|\$DOCKER_REGISTRY_IMAGE_URL|$DOCKER_REGISTRY_IMAGE_URL|g" | kubectl apply -f -
+  only:
+    - master
