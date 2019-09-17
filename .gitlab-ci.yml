@@ -7,7 +7,6 @@ stages:
 build:
   stage: build
   script:
-     - docker info
      - docker login --username=mikesoon@yahoo.com registry-intl.ap-southeast-3.aliyuncs.com --password='Mikesoon!@#123'
      - docker build -t awesome-project .
      - docker tag awesome-project registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
