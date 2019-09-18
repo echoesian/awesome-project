@@ -1,8 +1,8 @@
 image: docker:latest
 
 services:
-  - docker:dind
-  
+  - docker:18.09-dind
+
 variables:
   DOCKER_REGISTRY_IMAGE_URL: "registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome/"
   DOCKER_REGISTRY_USERNAME: "mikesoon@yahoo.com"
