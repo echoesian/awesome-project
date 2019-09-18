@@ -4,6 +4,7 @@ services:
   - docker:stable-dind
 
 variables:
+  DOCKER_HOST: tcp://localhost:2375/
   DOCKER_REGISTRY_IMAGE_URL: "registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome/"
   DOCKER_REGISTRY_USERNAME: "mikesoon@yahoo.com"
   DOCKER_REGISTRY_PASSWORD: "Mikesoon!@#123"
