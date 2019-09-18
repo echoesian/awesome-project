@@ -1,7 +1,7 @@
-image: docker:latest
+image: docker:stable
 
 services:
-  - docker:18.09.7-dind
+  - docker:stable-dind
 
 variables:
   DOCKER_HOST: tcp://docker:2375
