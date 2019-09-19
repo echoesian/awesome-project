@@ -2,7 +2,7 @@ image: docker:stable
 
 services:
   - docker:stable-dind
-
+  
 variables:
   DOCKER_HOST: tcp://localhost:2375/
   DOCKER_REGISTRY_IMAGE_URL: "registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome/"
@@ -11,7 +11,7 @@ variables:
   K8S_MASTER_PUBLIC_IP: "47.254.192.44"
   K8S_PASSWORD: "Mikesoon!@#123"
   MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
-  
+
 stages:
   - build
   - deploy
