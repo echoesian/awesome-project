@@ -31,11 +31,11 @@ production:
   image: roffe/kubectl:latest
   stage: deploy
   script:
-    - kubectl config set-cluster k8s --server="${K8S_MASTER_PUBLIC_IP}"
-    - kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
-    - kubectl config set-credentials gitlab --token="${USER_TOKEN}"
-    - kubectl config set-context default --cluster=k8s --user=gitlab
-    - kubectl config use-context default
+    #- kubectl config set-cluster k8s --server="${K8S_MASTER_PUBLIC_IP}"
+    #- kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
+    #- kubectl config set-credentials gitlab --token="${USER_TOKEN}"
+    #- kubectl config set-context default --cluster=k8s --user=gitlab
+    #- kubectl config use-context default
     - kubectl apply -f deployment.yaml
   only:
     - master
