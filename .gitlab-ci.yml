@@ -26,8 +26,6 @@ test:
   image: maven:latest
   stage: test
   script:
-    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install
-    - mvn org.jacoco:jacoco-maven-plugin:prepare-agent clean install -P coverage-per-test
     - mvn sonar:sonar -Dsonar.host.url=$SONAR_URL
   tags:
     - k8s-runner
