@@ -20,6 +20,7 @@ stages:
   - deploy
 
 test:
+  image: maven:latest
   stage: test
   only:
     - master
