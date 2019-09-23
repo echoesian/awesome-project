@@ -14,7 +14,6 @@
       <sonar.sources>src/main/java,src/main/js,src/main/resources</sonar.sources>
       <sonar.exclusions>src/main/resources/static/built/*</sonar.exclusions>
       <sonar.coverage.exclusions>src/main/js/**/*</sonar.coverage.exclusions>
-</properties>
   </properties>
   <dependencies>
       <!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
