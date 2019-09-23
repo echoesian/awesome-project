@@ -24,6 +24,9 @@ test:
   stage: test
   only:
     - master
+  artifacts:
+    paths:
+    - target/*.jar
   script:
     - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=https://sonarqube.mktechconsulting.co -Dsonar.login=admin
   tags:
