@@ -26,8 +26,6 @@ test:
   image: maven:latest
   stage: test
   script:
-    - cp pom.xml .
-    - cp -R src .
     - mvn sonar:sonar -Dsonar.host.url=$SONAR_URL
   tags:
     - k8s-runner
