@@ -24,7 +24,7 @@ quality:
   stage: quality
   env:
     SONAR_URL: https://sonarqube.mktechconsulting.co
-    SONAR_LOGIN: 'sonarqube login token'
+    SONAR_LOGIN: '922cc21a6632327c2f87bcaf05171cb44ceb0311'
   script:
     - sonar-scanner-preview # you can add other sonar options e.g: -Dsonar.projectVersion=${CI_COMMIT_SHA}
     - sonar-scanner # you can add other sonar options e.g: -Dsonar.projectVersion=${CI_COMMIT_SHA}
