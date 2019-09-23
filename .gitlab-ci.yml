@@ -15,19 +15,16 @@ variables:
   KUBECONFIG: /etc/deploy/config
   
 stages:
-  - quality
+  - test
   - build
   - deploy
 
-quality:
-  image: jramcast/gitlab-ci-sonarqube
-  stage: quality
-  env:
-    SONAR_URL: https://sonarqube.mktechconsulting.co
-    SONAR_LOGIN: '922cc21a6632327c2f87bcaf05171cb44ceb0311'
+test:
+  stage: test
+  only:
+    - master
   script:
-    - sonar-scanner-preview # you can add other sonar options e.g: -Dsonar.projectVersion=${CI_COMMIT_SHA}
-    - sonar-scanner # you can add other sonar options e.g: -Dsonar.projectVersion=${CI_COMMIT_SHA}
+    - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=https://sonarqube.mktechconsulting.co -Dsonar.login=admin
 
 build:
   stage: build
