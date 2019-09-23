@@ -13,6 +13,9 @@ variables:
   #K8S_PASSWORD: "Mikesoon!@#123"
   MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
   KUBECONFIG: /etc/deploy/config
+  MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
+  SONAR_URL: "https://sonarqube.mktechconsulting.co"
+  SONAR_LOGIN: "a7b4a92117ed7faa1732cd9026849eee604abeab"
   
 stages:
   - test
@@ -22,13 +25,13 @@ stages:
 test:
   image: maven:latest
   stage: test
-  only:
-    - master
+  script:
+    - "mvn clean install sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.branch=$CI_COMMIT_REF_NAME -Dmaven.test.failure.ignore=true -Duser.home=."
+    - "wget https://github.com/gabrie-allaigre/sonar-gate-breaker/releases/download/1.0.1/sonar-gate-breaker-all-1.0.1.jar"
+    - "java -jar sonar-gate-breaker-all-1.0.1.jar -u $SONAR_LOGIN"
   artifacts:
     paths:
-    - target/*.jar
-  script:
-    - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=https://sonarqube.mktechconsulting.co -Dsonar.login=admin
+      - target/*.jar
   tags:
     - k8s-runner
     
