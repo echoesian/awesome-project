@@ -25,7 +25,9 @@ test:
     - master
   script:
     - mvn --batch-mode verify sonar:sonar -Dsonar.host.url=https://sonarqube.mktechconsulting.co -Dsonar.login=admin
-
+  tags:
+    - k8s-runner
+    
 build:
   stage: build
   script:
