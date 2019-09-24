@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: simplejavaapp
-        image: registry-intl.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
+        image: registry-intl-vpc.ap-southeast-3.aliyuncs.com/ns-acr-ais/awesome:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
