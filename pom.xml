@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>docker-jenkins-ecs</groupId>
+  <groupId>awesome-project</groupId>
   <artifactId>simplewebapp</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Webapp</name>
+  <name>simplewebapp</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -14,6 +14,7 @@
       <sonar.sources>src/main/java,src/main/js,src/main/resources</sonar.sources>
       <sonar.exclusions>src/main/resources/static/built/*</sonar.exclusions>
       <sonar.coverage.exclusions>src/main/js/**/*</sonar.coverage.exclusions>
+      <sonar.source>.</sonar.source>
   </properties>
   <dependencies>
       <!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
