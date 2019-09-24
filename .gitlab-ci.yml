@@ -26,7 +26,7 @@ test:
   image: maven:latest
   stage: test
   script:
-    - mvn sonar:sonar -Dsonar.host.url=$SONAR_URL
+    - mvn sonar:sonar -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN
   tags:
     - k8s-runner
     
